@@ -1,8 +1,10 @@
+import 'package:ecss_hack_24/app_provider.dart';
 import 'package:ecss_hack_24/deps.dart';
 import 'package:ecss_hack_24/navigation.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   setupDeps();
@@ -21,11 +23,15 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
         fontFamily: GoogleFonts.josefinSans().fontFamily,
       ),
-      // theme: ThemeData(
-      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.orange),
-      //   useMaterial3: true,
-      //   fontFamily: GoogleFonts.josefinSans().fontFamily,
-      // ),
+      builder: (context, child) {
+        child = MultiProvider(
+          providers: [
+            ChangeNotifierProvider.value(value: AppProvider.instance),
+          ],
+          child: child,
+        );
+        return child;
+      },
       routerConfig: router,
     );
   }
