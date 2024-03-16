@@ -1,4 +1,5 @@
 import 'package:ecss_hack_24/app_provider.dart';
+import 'package:ecss_hack_24/main.dart';
 import 'package:ecss_hack_24/models/full_product.dart';
 import 'package:flextras/flextras.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +58,7 @@ class ProductCard extends StatelessWidget {
                     Expanded(
                       child: WrapImage(
                         child: Image.network(
-                          product.product.image,
+                          cors(product.product.image),
                           fit: BoxFit.cover,
                         ),
                       ),

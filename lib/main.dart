@@ -2,9 +2,13 @@ import 'package:ecss_hack_24/app_provider.dart';
 import 'package:ecss_hack_24/deps.dart';
 import 'package:ecss_hack_24/navigation.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+const kUrlCors = 'https://corsproxy.io/';
+String cors(String url) => kIsWeb ? '$kUrlCors?$url' : url;
 
 void main() {
   setupDeps();
